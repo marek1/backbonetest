@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TEST</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <style>
+        .error {
+            color : red;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Todos</h1>
+
+        <div class="error"></div>
+
+        <div id="todos">
+
+            <input type="text" id="addTodo">
+            <button class="addTodo">Add</button>
+            
+            <div id="todo-list">
+            </div>
+        </div>  
+
+        <script id="todo-template" type="text/template">
+            <div><%= id %> : <%= name %> <a href="#" data-index="<%= name %>"class="deleteTodo">x</a></div>
+        </script>
+
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="bower_components/backbone/backbone-min.js"></script>
+
+        <script src="script/models/todo.js"></script>
+        <script src="script/collections/todos.js"></script>
+        <script src="script/views/todos.js"></script>
+        <script src="script/views/todo.js"></script>
+        <script src="script/app.js"></script>
+    </body>
+</html>

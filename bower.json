@@ -1,0 +1,23 @@
+{
+  "name": "backbonetest",
+  "version": "0.0.1",
+  "description": "backbone testing",
+  "dependencies": {
+    "jquery": "*",
+    "underscore": "*",
+    "backbone": "*"
+  },
+  "keywords": [
+    "Javascript",
+    "Backbone",
+    "Jasmine"
+  ],
+  "authors": [
+    "Marek Sonnabend"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "~1.4.5",
+    "jasmine-core": "jasmine#~2.3.4"
+  }
+}
