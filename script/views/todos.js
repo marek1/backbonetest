@@ -12,6 +12,7 @@ app.TodosView = Backbone.View.extend({
 
         this.collection = new app.Todos();
         this.collection.fetch({reset: true});
+        console.log('collection : ',this.collection);
         this.render();
         
         //this.listenTo( this.collection, 'add', this.addTodo );

@@ -1,4 +1,4 @@
-describe('Tests for Todo App', function() {
+describe('MODELS', function() {
 	
 	var todo,
 		fetchTodo,
@@ -48,13 +48,13 @@ describe('Tests for Todo App', function() {
 	describe('Model saveTodo', function() {
 
 
-		it('fetch : should fetch the model by sending a server request', function() {
+		it('fetch : should call the models fetch method', function() {
 			fetchTodo.fetch();
             expect(fetchTodo.fetch).toHaveBeenCalled();
 		});
 
 
-		it('destroy : should destroy the model by sending a server request', function(){
+		it('destroy : should call the models destroy method', function(){
 			fetchTodo.destroy();
 			expect(fetchTodo.destroy).toHaveBeenCalled();
 		});
