@@ -17,3 +17,10 @@ To view the app run
 	gulp
 
 (or open the index.html in the browser)
+
+
+Versions
+
+
+0.0.2 Collection(s) & Test
+0.0.1 Model(s) & Test
