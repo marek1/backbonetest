@@ -1,8 +1,8 @@
-var app = app || {};
 
+var app = app || {};
+console.log('app : ',app);
 app.TodosView = Backbone.View.extend({
-    el: '#todos',
-    //template: _.template( $('#todoTemplate').html() ),
+    el: '#todo-list',
     events : {
     	'click .addTodo' : 'makeTodo'
     },
@@ -10,17 +10,20 @@ app.TodosView = Backbone.View.extend({
         this.$errors = $('.error'),
         this.$addTodo = $('#addTodo');
 
-        this.collection = new app.Todos();
-        this.collection.fetch({reset: true});
-        console.log('collection : ',this.collection);
-        this.render();
+        if (typeof initialTodos === 'undefined') {
+            this.collection = new app.Todos();
+            this.collection.fetch({reset: true});
+        } else {
+            this.collection = new app.Todos(initialTodos);
+        }
         
-        //this.listenTo( this.collection, 'add', this.addTodo );
-        this.listenTo( this.collection, 'reset', this.render );
+        this.render();
+        this.listenTo( this.collection, 'reset', this.render ); 
         
     },
     render: function(){
         this.collection.each(this.addTodo, this);
+        return this;
     },
     makeTodo: function(event){
         this.model = new app.Todo({name : this.$addTodo.val()}); 
@@ -48,8 +51,6 @@ app.TodosView = Backbone.View.extend({
     },
     addTodo: function(todo){
         var view = new app.TodoView({ model: todo });
-        $('#todo-list').append( view.render().el );
+        this.$el.append( view.render().el );
     }
 });
-
-	

@@ -20,19 +20,16 @@
 
         <div class="error"></div>
 
-        <div id="todos">
-
-            <input type="text" id="addTodo">
-            <button class="addTodo">Add</button>
-            
+        <div>
             <div id="todo-list">
+                <input type="text" id="addTodo">
+                <button class="addTodo">Add</button>
             </div>
         </div>  
 
-        <script id="todo-template" type="text/template">
-            <div><%= id %> : <%= name %> <a href="#" data-index="<%= name %>"class="deleteTodo">x</a></div>
+        <script id="todoTemplate2" type="text/template">
+            <%= id %> : <%= name %> <a href="#" data-index="<%= name %>" class="deleteTodo">x</a>
         </script>
-
 
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/underscore/underscore-min.js"></script>

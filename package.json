@@ -21,5 +21,8 @@
     "Jasmine"
   ],
   "author": "Marek Sonnabend",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.13.3"
+  }
 }

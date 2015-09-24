@@ -1,15 +1,6 @@
-  // js/views/todos.js
-
   var app = app || {};
 
-  // Todo Item View
-  // --------------
-
-  // The DOM element for a todo item...
   app.TodoView = Backbone.View.extend({
-
-    //... is a list tag.
-    tagName: 'li',
 
     events : {
       'click .changeTodo' : 'changeTodo',
@@ -17,16 +8,17 @@
     },
 
     // Cache the template function for a single item.
-    template: _.template( $('#todo-template').html() ),
+    template: _.template( $('#todoTemplate2').html() ),
 
     initialize: function() {
+      //nothing ?
     },
 
     render: function() {
       this.$el.html( this.template( this.model.attributes ) );
       return this;
     },
-
+    
     changeTodo: function(event) {
       event.preventDefault();
       this.model.set('name', $('#editTodo').val());
@@ -39,4 +31,5 @@
       this.model.destroy();
       this.remove();
     }
+
   });

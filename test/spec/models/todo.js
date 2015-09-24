@@ -47,12 +47,10 @@ describe('MODELS', function() {
 
 	describe('Model saveTodo', function() {
 
-
 		it('fetch : should call the models fetch method', function() {
 			fetchTodo.fetch();
             expect(fetchTodo.fetch).toHaveBeenCalled();
 		});
-
 
 		it('destroy : should call the models destroy method', function(){
 			fetchTodo.destroy();

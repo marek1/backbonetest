@@ -2,11 +2,11 @@ var app = app || {};
 
 $(function() {
     var tasks = [
-        { name: 'Learn Backbone', completed : 0 },
-        { name: 'See Whistler', completed : 0 },
-        { name: 'Go kart', completed : 0 },
-        { name: 'See Portland', completed : 0 }
+        { id:1 , name: 'Learn Backbone', completed : 0 },
+        { id:2, name: 'See Whistler', completed : 0 },
+        { id:3, name: 'Go kart', completed : 0 },
+        { id:7, name: 'See Portland', completed : 0 }
     ];
 
-    new app.TodosView( tasks );
+    new app.TodosView(  );
 });

@@ -5,6 +5,13 @@
         <link rel="stylesheet" href="../bower_components/jasmine-core/lib/jasmine-core/jasmine.css">
     </head>
     <body>
+
+        <!-- we need the template here in order for the TodoView to work -->
+        <script id="todoTemplate2" type="text/template">
+            <%= id %> : <%= name %>
+        </script>
+        <!-- template end -->
+
         <script src="../bower_components/jasmine-core/lib/jasmine-core/jasmine.js"></script>
         <script src="../bower_components/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
         <script src="../bower_components/jasmine-core/lib/jasmine-core/boot.js"></script>
@@ -16,15 +23,15 @@
 
         <script src="../script/models/todo.js"></script>
         <script src="../script/collections/todos.js"></script>
-        <script src="../script/views/todos.js"></script>
         <script src="../script/views/todo.js"></script>
+        <script src="../script/views/todos.js"></script>
         <script src="../script/app.js"></script>
 
         <!-- include spec files here... -->
         <script src="spec/models/todo.js"></script>
         <script src="spec/collections/todos.js"></script>
-
-        
+        <script src="spec/views/todos.js"></script>
+        <script src="spec/views/todo.js"></script>
 
     </body> 
 </html>
