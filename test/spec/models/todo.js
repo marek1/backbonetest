@@ -39,7 +39,8 @@ describe('MODELS', function() {
 		
 		it('save : should return a valdationError if intialized with no name value', function(){
 			saveTodo.save();
-			expect(saveTodo.validationError).toBe('no name');
+			//I changed this from being a simple string to an array of errors
+			expect(saveTodo.validationError[0]).toBe('no name');
 		});
 
 	});

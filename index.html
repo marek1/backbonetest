@@ -20,25 +20,39 @@
 
         <div class="error"></div>
 
-        <div>
-            <div id="todo-list">
-                <input type="text" id="addTodo">
-                <button class="addTodo">Add</button>
-            </div>
-        </div>  
+        <div id="view"></div>
 
-        <script id="todoTemplate2" type="text/template">
+        <script id="todosTemplate" type="text/template">
+            <div>
+                <div id="todo-list">
+                    <!-- this becomes the first child of todo-list -->
+                    <div> 
+                        <input type="text" id="addTodo">
+                        <button class="addTodo">Add</button>
+                    </div>  
+                    <!-- further children are the to-dos : -->
+                </div>
+            </div>  
+        </script>
+
+        <script id="todoTemplate" type="text/template">
             <%= id %> : <%= name %> <a href="#" data-index="<%= name %>" class="deleteTodo">x</a>
+        </script>
+
+        <script id="testTemplate" type="text/template">
+            Just a Test.
         </script>
 
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/underscore/underscore-min.js"></script>
         <script src="bower_components/backbone/backbone-min.js"></script>
-
+        
+        <script src="script/router/router.js"></script>
         <script src="script/models/todo.js"></script>
         <script src="script/collections/todos.js"></script>
         <script src="script/views/todos.js"></script>
         <script src="script/views/todo.js"></script>
+        <script src="script/views/test.js"></script>
         <script src="script/app.js"></script>
     </body>
 </html>

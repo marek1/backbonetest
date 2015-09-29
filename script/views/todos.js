@@ -1,14 +1,16 @@
 
 var app = app || {};
-console.log('app : ',app);
+
 app.TodosView = Backbone.View.extend({
-    el: '#todo-list',
+    el: $('#view'),
+
+    template: _.template( $('#todosTemplate').html() ),
+
     events : {
     	'click .addTodo' : 'makeTodo'
     },
     initialize: function( initialTodos ) {
-        this.$errors = $('.error'),
-        this.$addTodo = $('#addTodo');
+        this.$errors = $('.error');
 
         if (typeof initialTodos === 'undefined') {
             this.collection = new app.Todos();
@@ -22,6 +24,8 @@ app.TodosView = Backbone.View.extend({
         
     },
     render: function(){
+        this.$el.html( this.template() );
+        this.$addTodo = this.$el.find('#addTodo');
         this.collection.each(this.addTodo, this);
         return this;
     },
@@ -36,21 +40,24 @@ app.TodosView = Backbone.View.extend({
                 that.$errors.append(x);
             });
         } else  {
+            console.log('event.taget : ',event.target);
             $(event.target).attr('disabled', 'disabled');
         }
         this.model.save(null, {
             success: function(model, response){
+                console.log('success');
                 that.addTodo(model);
                 that.$addTodo.val('');
                 $(event.target).removeAttr('disabled');
             },
             error: function(){
                 console.log('error');
+                that.$errors.html('could not be saved');
             }
         });
     },
     addTodo: function(todo){
         var view = new app.TodoView({ model: todo });
-        this.$el.append( view.render().el );
+        $('#todo-list').append( view.render().el );
     }
 });

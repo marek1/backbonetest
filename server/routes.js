@@ -36,9 +36,11 @@ router.put('/todo', function(req, res, next) {
 	json.push(req.body);
 	res.sendStatus(200);
 });
-router.delete('/todo', function(req, res, next) {
-	console.log('req.body : ',findEntry(req.body.id));
-	json.splice(findEntry(req.body.id),1);
-	res.sendStatus(200);
+router.delete('/todo/:id', function(req, res, next) {
+	var id = req.params.id;
+	var response = {};
+	console.log('id : ',id);
+	json.splice(findEntry(id),1);
+	res.end(JSON.stringify(response));
 });
 module.exports = router;

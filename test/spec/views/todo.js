@@ -4,6 +4,7 @@ describe('VIEWS : TodoView', function() {
     model,
     view;
 
+
     beforeEach(function() {
         model = new app.Todo(task); 
         view = new app.TodoView({model : model});
@@ -27,12 +28,47 @@ describe('VIEWS : TodoView', function() {
     });
 
     it('should have no children elements', function() {
-        expect(view.$el.children().length).toBe(0);
+        expect(view.$el.children().length).toBe(1);
     });
 
     it('should contain text "Learn Backbone"', function() {
-        console.log('view.$el.html()  ',view.$el);
         expect(view.$el.html()).toContain('Drink');
+    });
+
+    //TEST : deleteTodo (its asynchonous)
+
+    it('should delete the todo when pressing deleteTodo and make a server request"', function() {
+            
+        spyOn($,'ajax');
+
+        view.$el.find('.deleteTodo').click();
+
+        expect($.ajax).toHaveBeenCalled();
+
+    });
+
+    it('should delete the todo when pressing deleteTodo and delete the model"', function() {
+    
+
+        spyOn($, 'ajax').and.callFake(function() {
+            console.log('yo!');
+            return '{}';
+        });
+        console.log('view.model : ',view.model);
+        view.$el.find('.deleteTodo').click();
+
+ /*
+        //prepare reponse text
+        var serverResponse = '';
+        //prime the server to respond with particular text on a certain URL
+        this.server = sinon.fakeServer.create();
+        this.server.respondWith("DELETE", "http://0.0.0.0:3000/todo/1", [200, {"Content-Type":"application/json"}, serverResponse]);
+        //force the server to respond
+        this.server.respond();
+*/
+
+        expect(view.$el.html()).not.toContain('Drink');
+
     });
 
     afterEach(function() {

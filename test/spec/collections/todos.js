@@ -15,12 +15,11 @@ describe('COLLECTIONS', function() {
 		fetchTodos = new app.Todos();
 		spyOn(fetchTodos, 'fetch');
 	});
-
+	
 	describe('Collection Todo', function() {
 
 		it('todos to be defined', function() {
 		    expect(todos).toBeDefined();
-		    console.log('todos : ',todos);
 		});
 
 		it('todos should contain 4 models', function() {

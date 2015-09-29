@@ -3,12 +3,11 @@
   app.TodoView = Backbone.View.extend({
 
     events : {
-      'click .changeTodo' : 'changeTodo',
       'click .deleteTodo' : 'deleteTodo'
     },
 
     // Cache the template function for a single item.
-    template: _.template( $('#todoTemplate2').html() ),
+    template: _.template( $('#todoTemplate').html() ),
 
     initialize: function() {
       //nothing ?
@@ -19,16 +18,19 @@
       return this;
     },
     
-    changeTodo: function(event) {
-      event.preventDefault();
-      this.model.set('name', $('#editTodo').val());
-      this.model.save();
-      this.render();
-    },
-
     deleteTodo: function(event) {
       event.preventDefault();
-      this.model.destroy();
+      var that = this;
+      this.model.destroy({
+            success: function(model, response){
+                console.log('success');
+                
+            },
+            error: function(){
+                console.log('error');
+            },
+            wait : true
+        });
       this.remove();
     }
 

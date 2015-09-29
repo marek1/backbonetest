@@ -1,6 +1,6 @@
 {
   "name": "backbonetest",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "backbone test",
   "main": "index.js",
   "devDependencies": {

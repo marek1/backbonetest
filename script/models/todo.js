@@ -14,8 +14,8 @@ app.Todo = Backbone.Model.extend({
 	initialize: function(){
       	//console.log('this model gets cid ',this.cid);
       	this.on('change', function(){
-      		console.log('changed -> can be listened to');
-      	});  
+      		console.log('model has changed');
+      	}); 
   	},
   	validate: function() {
   		var errors = [];

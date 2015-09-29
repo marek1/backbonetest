@@ -6,32 +6,64 @@
     </head>
     <body>
 
-        <!-- we need the template here in order for the TodoView to work -->
-        <script id="todoTemplate2" type="text/template">
-            <%= id %> : <%= name %>
+
+        <div class="error"></div>
+
+        <div id="view"></div>
+
+        <script id="todosTemplate" type="text/template">
+            <div>
+                <div id="todo-list">
+                    <!-- this becomes the first child of todo-list -->
+                    <div> 
+                        <input type="text" id="addTodo">
+                        <button class="addTodo">Add</button>
+                    </div>  
+                    <!-- further children are the to-dos : -->
+                </div>
+            </div>  
         </script>
-        <!-- template end -->
+
+        <script id="todoTemplate" type="text/template">
+            <%= id %> : <%= name %> <a href="#" data-index="<%= name %>" class="deleteTodo">x</a>
+        </script>
+
+        <script id="testTemplate" type="text/template">
+            Just a Test.
+        </script>
 
         <script src="../bower_components/jasmine-core/lib/jasmine-core/jasmine.js"></script>
         <script src="../bower_components/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
         <script src="../bower_components/jasmine-core/lib/jasmine-core/boot.js"></script>
+        <script src="../bower_components/jasmine-ajax/lib/mock-ajax.js"></script>
  
         <!-- include source files here... -->
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../bower_components/underscore/underscore-min.js"></script>
         <script src="../bower_components/backbone/backbone-min.js"></script>
 
+        <script src="../bower_components/sinon/lib/sinon.js"></script>
+        <script src="../bower_components/sinon/lib/sinon/extend.js"></script>
+        <script src="../bower_components/sinon/lib/sinon/spy.js"></script>
+        <script src="../bower_components/sinon/lib/sinon/call.js"></script>
+        <script src="../bower_components/sinon/lib/sinon/util/core.js"></script>
+        <script src="../bower_components/sinon/lib/sinon/util/fake_xml_http_request.js"></script>
+        <script src="../bower_components/sinon/lib/sinon/util/fake_xdomain_request.js"></script>
+        <script src="../bower_components/sinon/lib/sinon/util/fake_server.js"></script>
+
+        <script src="../script/router/router.js"></script>
         <script src="../script/models/todo.js"></script>
         <script src="../script/collections/todos.js"></script>
+        <script src="../script/views/test.js"></script>
         <script src="../script/views/todo.js"></script>
         <script src="../script/views/todos.js"></script>
-        <script src="../script/app.js"></script>
 
         <!-- include spec files here... -->
         <script src="spec/models/todo.js"></script>
         <script src="spec/collections/todos.js"></script>
         <script src="spec/views/todos.js"></script>
         <script src="spec/views/todo.js"></script>
+        <script src="spec/router/router.js"></script>
 
     </body> 
 </html>
